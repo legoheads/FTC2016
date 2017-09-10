@@ -71,7 +71,8 @@ public class Teleop extends LinearOpMode
     //LOOP BELOW
         //While the op mode is active, do anything within the loop
         //Note we use opModeIsActive() as our loop condition because it is an interruptible method.
-        while (opModeIsActive()) {
+        while (opModeIsActive())
+        {
             //Set float variables as the inputs from the joysticks and the triggers
             drive = -gamepad1.left_stick_y;
             shift = - gamepad1.left_stick_x;
