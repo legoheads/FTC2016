@@ -2,14 +2,13 @@
 package org.usfirst.ftc.exampleteam.yourcodehere;
 
 //Import necessary items
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DeviceInterfaceModule;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
-@Autonomous(name="Auto Red") //Name the program
-public class autoRed extends LinearOpMode
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto Blue") //Name the program
+public class auto extends LinearOpMode
 {
     //Define DC Motors
     DcMotor leftMotorFront;
@@ -28,7 +27,7 @@ public class autoRed extends LinearOpMode
     DeviceInterfaceModule CDI;
 
     //Define a string to use as the color, and set it to blue, since we are blue team
-    String color = "Red";
+    String color = "Blue";
 
 //    //Define an int for the time that the shooter will be on
 //    int shootTime = 3000;
@@ -72,49 +71,6 @@ public class autoRed extends LinearOpMode
 //***************************************************************************************************************************
         while (opModeIsActive())
         {
-            functions.shooterTeleOp(1, (float)1.0);
-            Thread.sleep(1000);
-
-            spinnerTop.setPower(0.1);
-            Thread.sleep(800);
-            spinnerTop.setPower(0.0);
-
-
-            functions.shooterTeleOp(0, (float) 0.0);
-
-            //Drive toward the center vortex
-            functions.driveAutonomous(-drivePower, -3000);
-
-            //Shift towards beacon
-            functions.rightShiftAutonomous(shiftPower, 3000);
-
-            //Become aligned with beacon
-            functions.driveAutonomous(-drivePower, -1500);
-
-            //Shift next to beacon
-            functions.rightShiftAutonomous(shiftPower, 3000);
-
-            //Stop on the white line
-            functions.whiteLineStop(-stopOnLinePower);
-
-            //If we see the color (in this case, "red") shift and hit the beacon
-            functions.beaconColorCheck(color, colorSensorRight);
-
-            //Drive to second beacon
-            functions.driveAutonomous(-drivePower, -4000);
-
-            //Stop on the white line
-            functions.whiteLineStop(-stopOnLinePower);
-
-            //If we see the color (in this case, "red") shift and hit the beacon
-            functions.beaconColorCheck(color, colorSensorRight);
-
-            //Turn to Center Vortex
-            functions.leftTurnAutonomous(turnPower, 12000);
-
-            //Drive to Center Vortex
-            functions.driveAutonomous(drivePower, 5600);
-
             //Always call idle() at the bottom of your while(opModeIsActive()) loop
             idle();
 
